@@ -1,24 +1,22 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "copilot_sommelier_caviste"
+name = "copilot-sommelier-caviste"
 version = "1.0.0"
-description = "Copilote Métier Autonome : Copilot Sommelier & Accords Vins"
+description = "Agent autonome conseillant les accords mets-vins, millésimes et cépages selon le plat choisi par le client."
 readme = "README.md"
 requires-python = ">=3.10"
+license = { text = "Proprietary / SNORBIK AI" }
+authors = [
+    { name = "Snorbik AI Engineering", email = "engineering@snorbik.ai" }
+]
 dependencies = [
-    "pydantic>=2.0.0",
-    "fastapi>=0.100.0"
+    "pydantic>=2.7.0",
+    "fastapi>=0.110.0",
+    "mcp>=1.0.0"
 ]
 
-[project.optional-dependencies]
-test = [
-    "pytest>=8.0.0",
-    "httpx>=0.24.0"
-]
-
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["copilot_sommelier_caviste*"]
+[tool.setuptools]
+packages = { find = { where = ["."], exclude = ["tests*", "docs*"] } }
