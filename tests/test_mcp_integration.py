@@ -9,7 +9,7 @@ from pathlib import Path
 
 def test_stdio_mcp_handshake():
     root = Path(__file__).resolve().parents[1]
-    server_file = root / "canal_mcp/mcp_server.py"
+    server_file = root / "copilot_sommelier_caviste/entrypoints/fastmcp_server.py"
     assert server_file.exists(), f"Entrypoint introuvable : {server_file}"
 
     proc = subprocess.Popen(

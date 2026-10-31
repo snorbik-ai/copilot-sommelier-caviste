@@ -17,7 +17,7 @@ from pathlib import Path
 MIN_PYTHON = (3, 10)
 COMPONENT_NAME = "copilot-sommelier-caviste"
 IS_NODE = False
-ENTRYPOINT_REL = "canal_mcp/mcp_server.py"
+ENTRYPOINT_REL = "copilot_sommelier_caviste/entrypoints/fastmcp_server.py"
 
 def check_python_version():
     if sys.version_info < MIN_PYTHON:
