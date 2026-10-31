@@ -1,0 +1,15 @@
+name: CI/CD Pipeline - Copilot Sommelier & Accords Vins
+on:
+  push:
+    branches: [ main, dev ]
+jobs:
+  test-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install --upgrade pip && pip install pytest pydantic fastapi httpx build
+      - run: python -m pytest tests/ -v
+      - run: python -m build --wheel --no-isolation

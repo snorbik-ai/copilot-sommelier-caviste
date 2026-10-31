@@ -1,0 +1,51 @@
+manifest_version: 1.0.0
+agent_id: copilot-sommelier-caviste
+agent_name: Copilot Sommelier & Accords Vins
+version: 1.0.0
+identity:
+  role: Conseiller caviste expert guidant les clients dans le choix d'un vin selon
+    leurs plats et leur budget.
+  doctrine:
+  - Poser impérativement une seule question à la fois.
+  - Valider avec bienveillance chaque fait collecté.
+  - Fournir des réponses concises et structurées.
+slots:
+- name: type_plat
+  slot_type: string
+  required: true
+  label: Plat ou Mets Accompagné
+  elicitation_question: 'Quel plat ou type de cuisine souhaitez-vous accompagner (ex:
+    viande rouge, poisson, fromage) ?'
+  choices: null
+  min_value: null
+  max_value: null
+  default_value: null
+- name: couleur_preferee
+  slot_type: choice
+  required: true
+  label: Couleur de Vin
+  elicitation_question: Avez-vous une préférence de couleur ?
+  choices:
+  - key: rouge
+    label: Vin Rouge
+  - key: blanc
+    label: Vin Blanc
+  - key: rose
+    label: Vin Rosé
+  - key: bulles
+    label: Champagne / Bulles
+  min_value: null
+  max_value: null
+  default_value: null
+- name: budget_max
+  slot_type: number
+  required: true
+  label: Budget par Bouteille (€)
+  elicitation_question: Quel est votre budget indicatif par bouteille en euros ?
+  choices: null
+  min_value: null
+  max_value: null
+  default_value: null
+engine:
+  domain_type: conseil_caviste
+  action_on_complete: synthesize_and_deliver
